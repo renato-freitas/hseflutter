@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hsemobileflutter/models/user.dart';
-import 'package:hsemobileflutter/provider/users.dart';
-import 'package:provider/provider.dart';
+import '../../data/users.dart' as users;
 
 class UserForm extends StatefulWidget {
   @override
@@ -19,7 +18,7 @@ class _UserFormState extends State<UserForm> {
       _formData['name'] = user.name;
       _formData['email'] = user.email;
       _formData['password'] = user.password;
-      _formData['avatarUrl'] = user.avatarUrl;
+      _formData['type'] = user.type;
     }
   }
 
@@ -44,14 +43,13 @@ class _UserFormState extends State<UserForm> {
               if (isValid) {
                 _form.currentState.save();
 
-                //Nesse ponto não precisa rerenderizar
-                Provider.of<Users>(context, listen: false).put(
+                users.add(
                   User(
                     id: _formData['id'],
                     name: _formData['name'],
                     email: _formData['email'],
                     password: _formData['password'],
-                    avatarUrl: _formData['avatarUrl'],
+                    type: _formData['type'],
                   ),
                 );
 
@@ -72,13 +70,12 @@ class _UserFormState extends State<UserForm> {
                 decoration: InputDecoration(labelText: 'Nome'),
                 textInputAction: TextInputAction.next,
                 validator: (value) {
-                  if (value == null || value.trim().isEmpty) {
+                  if (value == null || value.isEmpty) {
                     return 'Nome é obrigatório';
                   }
                   if (value.trim().length < 3) {
                     return 'Mínimo 3 dígitos!';
                   }
-                  // return value;
                 },
                 onSaved: (value) => _formData['name'] = value,
               ),
@@ -95,10 +92,15 @@ class _UserFormState extends State<UserForm> {
                 onSaved: (value) => _formData['password'] = value,
               ),
               TextFormField(
-                initialValue: _formData['avatarUrl'],
-                decoration: InputDecoration(labelText: 'URL da image'),
+                initialValue: _formData['type'],
+                decoration: InputDecoration(labelText: 'Tipo'),
                 textInputAction: TextInputAction.go,
-                onSaved: (value) => _formData['avatarUrl'] = value,
+                validator: (value) {
+                  if (value == null || value.trim().isEmpty) {
+                    return 'Tipo é obrigatório';
+                  }
+                },
+                onSaved: (value) => _formData['type'] = value,
               ),
             ],
           ),

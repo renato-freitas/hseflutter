@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:hsemobileflutter/provider/clients.dart';
+import 'package:hsemobileflutter/data/clients.dart';
 import 'package:hsemobileflutter/routes/app_routes.dart';
 import 'package:hsemobileflutter/views/client/client_item.dart';
 import 'package:provider/provider.dart';

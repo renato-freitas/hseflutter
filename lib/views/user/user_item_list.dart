@@ -1,22 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:hsemobileflutter/models/user.dart';
-import 'package:hsemobileflutter/provider/users.dart';
 import 'package:hsemobileflutter/routes/app_routes.dart';
-import 'package:provider/provider.dart';
+import '../../data/users.dart' as users;
 
 class UserItemList extends StatelessWidget {
   final User user;
   const UserItemList(this.user);
+
   @override
   Widget build(BuildContext context) {
-    final defaultAvatar = user.avatarUrl == null || user.avatarUrl.isEmpty
-        ? CircleAvatar(child: Icon(Icons.person))
-        : CircleAvatar(backgroundImage: NetworkImage(user.avatarUrl));
-
     return ListTile(
-      leading: defaultAvatar,
+      leading: CircleAvatar(child: Icon(Icons.person)),
       title: Text(user.name),
-      subtitle: Text(user.email),
+      subtitle: Text(user.type),
       trailing: Container(
         width: 100,
         child: Row(
@@ -34,32 +30,25 @@ class UserItemList extends StatelessWidget {
                 icon: Icon(Icons.delete),
                 color: Colors.deepOrange.shade600,
                 onPressed: () {
-                  //ShowDialog return a Future<>.
                   showDialog(
                     context: context,
                     builder: (cxt) => AlertDialog(
                       title: Text("Confirmar!"),
                       content: Text("Confirmar exclusão?"),
                       actions: <Widget>[
-                        FlatButton(
+                        TextButton(
                             onPressed: () {
                               Navigator.of(context).pop();
                             },
                             child: Text('Não')),
-                        FlatButton(
+                        TextButton(
                             onPressed: () {
-                              Provider.of<Users>(context, listen: false)
-                                  .remove(user);
+                              users.delete(user);
                               Navigator.of(context).pop();
                             },
                             child: Text('Sim')),
                       ],
                     ),
-                    //Poderia usar o .then( (confirmed) {
-                    //if(confirmed){
-                    //Provider.of<Users>(context, listen: false).remove(user);
-                    //}
-                    //})
                   );
                 })
           ],

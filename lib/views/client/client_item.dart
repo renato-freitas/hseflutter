@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hsemobileflutter/models/client.dart';
-import 'package:hsemobileflutter/provider/clients.dart';
+import 'package:hsemobileflutter/data/clients.dart';
 import 'package:hsemobileflutter/routes/app_routes.dart';
 import 'package:provider/provider.dart';
 
@@ -38,12 +38,12 @@ class ClientItem extends StatelessWidget {
                       title: Text("Confirmar!"),
                       content: Text("Confirmar exclusão?"),
                       actions: <Widget>[
-                        FlatButton(
+                        TextButton(
                             onPressed: () {
                               Navigator.of(context).pop();
                             },
                             child: Text('Não')),
-                        FlatButton(
+                        TextButton(
                             onPressed: () {
                               Provider.of<Clients>(context, listen: false)
                                   .remove(client);

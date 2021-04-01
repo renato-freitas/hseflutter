@@ -1,0 +1,69 @@
+{
+  "project_info": {
+    "project_number": "312570527913",
+    "firebase_url": "https://hsechecklist-1208d-default-rtdb.firebaseio.com",
+    "project_id": "hsechecklist-1208d",
+    "storage_bucket": "hsechecklist-1208d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:312570527913:android:5b0a7b7aaa113f543ee9b8",
+        "android_client_info": {
+          "package_name": "com.example.friendlyeats"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "312570527913-gqlekuib26lev6jmpq65u5bg7314rcjr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD-qNq71J4dQEKVUHQVSqlhtY9U_IzdUb4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "312570527913-gqlekuib26lev6jmpq65u5bg7314rcjr.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:312570527913:android:66ea80bf1dc94b523ee9b8",
+        "android_client_info": {
+          "package_name": "com.example.hsemobileflutter"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "312570527913-gqlekuib26lev6jmpq65u5bg7314rcjr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD-qNq71J4dQEKVUHQVSqlhtY9U_IzdUb4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "312570527913-gqlekuib26lev6jmpq65u5bg7314rcjr.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

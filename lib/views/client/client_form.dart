@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hsemobileflutter/models/client.dart';
-import 'package:hsemobileflutter/provider/clients.dart';
+import 'package:hsemobileflutter/data/clients.dart';
 import 'package:provider/provider.dart';
 
 class ClientForm extends StatefulWidget {
@@ -82,7 +82,7 @@ class _ClientFormState extends State<ClientForm> {
                   if (value.trim().length < 3) {
                     return 'Mínimo 3 dígitos!';
                   }
-                  // return value;
+                  return value;
                 },
                 onSaved: (value) => _formData['socialName'] = value,
               ),
